@@ -22,6 +22,11 @@ public class TestHomework1 {
 //        15: Сформируйте новую строку, повторяя каждую строку в массиве столько раз, какова ее длина.
 
         double[] array = {1, 3, 11, 5, 8, 12, 3, 44};
+        String[] arrStrings = {"Sergei", "Cat", "Tiger", "Marie", "Football", "dog"};
+        String[] animals = {"Ser", "Cat", "Dog"};
+
+        String animal = "dog";
+
         System.out.println((getSumNotEven(array)));
         System.out.println((findMaxElement(array)));
         System.out.println("Содержит заданный элемент столько раз: " + findSameElement(array));
@@ -32,6 +37,10 @@ public class TestHomework1 {
         System.out.println(multiplyNotEvenElements(array));
         System.out.println(findMinusOfMaxAndMinElements(array));
         System.out.println(sumPositiveElements(array));
+        System.out.println(getLongestString(arrStrings));
+        System.out.println(getSameString(animal, arrStrings));
+        System.out.println(getSameLength(arrStrings));
+        System.out.println(getSameLength(animals));
     }
 
     //#1: Найдите сумму всех нечетных элементов массива.
@@ -142,5 +151,45 @@ public class TestHomework1 {
         }
         return result;
     }
+
+    //    11: Найдите самую длинную строку в массиве строк.
+    public static String getLongestString(String[] arrStrings) {
+        String longest = "";
+        for (int i = 0; i <= arrStrings.length - 1; i++) {
+            if (longest.length() < arrStrings[i].length()) {
+                longest = arrStrings[i];
+            }
+        }
+        return longest;
+    }
+
+    //        12: Подсчитайте, сколько раз в массиве встречается строка, равная заданной.
+    public static int getSameString(String animal, String[] arrString) {
+        int sum = 0;
+        for (int i = 0; i <= arrString.length - 1; i++) {
+            if (animal.length() == arrString[i].length()) {
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    //        13: Проверьте, все ли строки в массиве имеют одинаковую длину.
+    public static boolean getSameLength(String[] arrStrings) {
+        for (int i = 1; i <= arrStrings.length - 1; i++) {
+            if (arrStrings[0].length() != arrStrings[i].length()) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
+
+//        14: Найдите строку в массиве, содержащую наибольшее количество гласных.
+//    public static int countMaxVowels(String[] arrStrings) {
+//        String vowels = "aoeiuyAOEIUY";
+//
+//        for (int i = 0; i <= arrStrings.length-1; i++) {
+//
+
 
