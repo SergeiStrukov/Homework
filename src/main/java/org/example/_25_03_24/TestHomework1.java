@@ -21,13 +21,13 @@ public class TestHomework1 {
 //        14: Найдите строку в массиве, содержащую наибольшее количество гласных.
 //        15: Сформируйте новую строку, повторяя каждую строку в массиве столько раз, какова ее длина.
 
-        double[] array = {1, 3, 11, 5, 8, 12, 3, 44};
+        double[] array = {-11, 3, 11, 5, 8, 12, 3, 44};
         String[] arrStrings = {"Sergei", "Cat", "Tiger", "Marie", "Football", "dog"};
         String[] animals = {"Ser", "Cat", "Dog"};
 
         String animal = "dog";
 
-        System.out.println((getSumNotEven(array)));
+        System.out.println((getSumOddEven(array)));
         System.out.println((findMaxElement(array)));
         System.out.println("Содержит заданный элемент столько раз: " + findSameElement(array));
         System.out.println(Arrays.toString(reverseMassive(array)));
@@ -44,7 +44,7 @@ public class TestHomework1 {
     }
 
     //#1: Найдите сумму всех нечетных элементов массива.
-    public static double getSumNotEven(double[] array) {
+    public static double getSumOddEven(double[] array) {
         double result = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 != 0) {
@@ -56,8 +56,8 @@ public class TestHomework1 {
 
     //    2: Найдите максимальный элемент в массиве.
     public static double findMaxElement(double[] array) {
-        double max = 0;
         int i = 0;
+        double max = array[0];
         while (i <= array.length - 1) {
             if (array[i] > max) {
                 max = array[i];
@@ -96,7 +96,7 @@ public class TestHomework1 {
     public static double sumNotEvenElementsIndexes(double[] array) {
         double result = 0;
         for (int i = 0; i <= array.length - 1; i++) {
-            if (array[i] % 2 != 0 && i % 2 == 0) {
+            if (i % 2 != 0) {
                 result += array[i];
             }
         }
