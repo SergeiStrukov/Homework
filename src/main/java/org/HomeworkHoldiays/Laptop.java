@@ -7,7 +7,7 @@ import lombok.Setter;
 public class Laptop extends OfficeEquipment {
     @Getter
     @Setter
-    private String processorType;
+    private String processorType ;
     @Getter
     @Setter
     private int ramSize;
