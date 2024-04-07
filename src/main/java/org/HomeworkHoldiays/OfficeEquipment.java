@@ -1,8 +1,7 @@
-package org.example04042024Rename;
+package org.HomeworkHoldiays;
 
 import com.github.javafaker.Faker;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class OfficeEquipment {

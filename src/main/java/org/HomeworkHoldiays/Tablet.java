@@ -1,4 +1,4 @@
-package org.example04042024Rename;
+package org.HomeworkHoldiays;
 
 public class Tablet extends OfficeEquipment{
     private int screenSize;

@@ -1,6 +1,4 @@
-package org.example04042024Rename;
-
-import com.github.javafaker.Faker;
+package org.HomeworkHoldiays;
 
 public class Projector extends OfficeEquipment{
     private int lumens;
