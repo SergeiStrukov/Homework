@@ -1,6 +1,11 @@
 package org.HomeworkHoldiays;
 
-public class Tablet extends OfficeEquipment{
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class Tablet extends OfficeEquipment {
     private int screenSize;
     private int storageSize;
     private String operatingSystem;
@@ -18,62 +23,6 @@ public class Tablet extends OfficeEquipment{
         this.batteryLife = batteryLife;
         this.isCellular = isCellular;
         this.cameraResolution = cameraResolution;
-        this.processorType = processorType;
-    }
-
-    public int getScreenSize() {
-        return screenSize;
-    }
-
-    public int getStorageSize() {
-        return storageSize;
-    }
-
-    public String getOperatingSystem() {
-        return operatingSystem;
-    }
-
-    public int getBatteryLife() {
-        return batteryLife;
-    }
-
-    public boolean isCellular() {
-        return isCellular;
-    }
-
-    public int getCameraResolution() {
-        return cameraResolution;
-    }
-
-    public String getProcessorType() {
-        return processorType;
-    }
-
-    public void setScreenSize(int screenSize) {
-        this.screenSize = screenSize;
-    }
-
-    public void setStorageSize(int storageSize) {
-        this.storageSize = storageSize;
-    }
-
-    public void setOperatingSystem(String operatingSystem) {
-        this.operatingSystem = operatingSystem;
-    }
-
-    public void setBatteryLife(int batteryLife) {
-        this.batteryLife = batteryLife;
-    }
-
-    public void setCellular(boolean cellular) {
-        isCellular = cellular;
-    }
-
-    public void setCameraResolution(int cameraResolution) {
-        this.cameraResolution = cameraResolution;
-    }
-
-    public void setProcessorType(String processorType) {
         this.processorType = processorType;
     }
 

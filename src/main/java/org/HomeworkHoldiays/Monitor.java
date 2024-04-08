@@ -1,5 +1,10 @@
 package org.HomeworkHoldiays;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Monitor extends OfficeEquipment {
     private double screenSize;
     private double resolution;
@@ -19,62 +24,6 @@ public class Monitor extends OfficeEquipment {
         this.isCurved = isCurved;
         this.port = port;
         this.isHDR = isHDR;
-    }
-
-    public double getScreenSize() {
-        return screenSize;
-    }
-
-    public double getResolution() {
-        return resolution;
-    }
-
-    public String getPanelType() {
-        return panelType;
-    }
-
-    public int getRefreshRate() {
-        return refreshRate;
-    }
-
-    public boolean isCurved() {
-        return isCurved;
-    }
-
-    public String getPort() {
-        return port;
-    }
-
-    public boolean isHDR() {
-        return isHDR;
-    }
-
-    public void setScreenSize(double screenSize) {
-        this.screenSize = screenSize;
-    }
-
-    public void setResolution(double resolution) {
-        this.resolution = resolution;
-    }
-
-    public void setPanelType(String panelType) {
-        this.panelType = panelType;
-    }
-
-    public void setRefreshRate(int refreshRate) {
-        this.refreshRate = refreshRate;
-    }
-
-    public void setCurved(boolean curved) {
-        isCurved = curved;
-    }
-
-    public void setPort(String port) {
-        this.port = port;
-    }
-
-    public void setHDR(boolean HDR) {
-        isHDR = HDR;
     }
 
     @Override

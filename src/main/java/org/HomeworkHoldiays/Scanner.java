@@ -1,5 +1,10 @@
 package org.HomeworkHoldiays;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Scanner extends OfficeEquipment {
     private String scanResolution;
     private int scanSpeed;
@@ -18,62 +23,6 @@ public class Scanner extends OfficeEquipment {
         this.maxPaperSize = maxPaperSize;
         this.connectivity = connectivity;
         this.isDuplexScanning = isDuplexScanning;
-        this.scannerType = scannerType;
-    }
-
-    public String getScanResolution() {
-        return scanResolution;
-    }
-
-    public int getScanSpeed() {
-        return scanSpeed;
-    }
-
-    public int getColorDepth() {
-        return colorDepth;
-    }
-
-    public String getMaxPaperSize() {
-        return maxPaperSize;
-    }
-
-    public String getConnectivity() {
-        return connectivity;
-    }
-
-    public boolean isDuplexScanning() {
-        return isDuplexScanning;
-    }
-
-    public String getScannerType() {
-        return scannerType;
-    }
-
-    public void setScanResolution(String scanResolution) {
-        this.scanResolution = scanResolution;
-    }
-
-    public void setScanSpeed(int scanSpeed) {
-        this.scanSpeed = scanSpeed;
-    }
-
-    public void setColorDepth(int colorDepth) {
-        this.colorDepth = colorDepth;
-    }
-
-    public void setMaxPaperSize(String maxPaperSize) {
-        this.maxPaperSize = maxPaperSize;
-    }
-
-    public void setConnectivity(String connectivity) {
-        this.connectivity = connectivity;
-    }
-
-    public void setDuplexScanning(boolean duplexScanning) {
-        isDuplexScanning = duplexScanning;
-    }
-
-    public void setScannerType(String scannerType) {
         this.scannerType = scannerType;
     }
 

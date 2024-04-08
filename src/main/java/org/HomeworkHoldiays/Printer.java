@@ -1,5 +1,10 @@
 package org.HomeworkHoldiays;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Printer extends OfficeEquipment {
     private String printTechnology;
     private int printSpeed;
@@ -18,62 +23,6 @@ public class Printer extends OfficeEquipment {
         this.isColor = isColor;
         this.paperSize = paperSize;
         this.connectivity = connectivity;
-        this.dutyCycle = dutyCycle;
-    }
-
-    public String getPrintTechnology() {
-        return printTechnology;
-    }
-
-    public int getPrintSpeed() {
-        return printSpeed;
-    }
-
-    public int getMaxResolution() {
-        return maxResolution;
-    }
-
-    public String getIsColor() {
-        return isColor;
-    }
-
-    public double getPaperSize() {
-        return paperSize;
-    }
-
-    public String getConnectivity() {
-        return connectivity;
-    }
-
-    public int getDutyCycle() {
-        return dutyCycle;
-    }
-
-    public void setPrintTechnology(String printTechnology) {
-        this.printTechnology = printTechnology;
-    }
-
-    public void setPrintSpeed(int printSpeed) {
-        this.printSpeed = printSpeed;
-    }
-
-    public void setMaxResolution(int maxResolution) {
-        this.maxResolution = maxResolution;
-    }
-
-    public void setIsColor(String isColor) {
-        this.isColor = isColor;
-    }
-
-    public void setPaperSize(double paperSize) {
-        this.paperSize = paperSize;
-    }
-
-    public void setConnectivity(String connectivity) {
-        this.connectivity = connectivity;
-    }
-
-    public void setDutyCycle(int dutyCycle) {
         this.dutyCycle = dutyCycle;
     }
 

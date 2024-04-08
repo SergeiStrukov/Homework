@@ -1,5 +1,10 @@
 package org.HomeworkHoldiays;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Switch extends OfficeEquipment {
     private int portCount;
     private int speed;
@@ -18,62 +23,6 @@ public class Switch extends OfficeEquipment {
         this.managementType = managementType;
         this.powerOverEthernet = powerOverEthernet;
         this.stackable = stackable;
-        this.formFactor = formFactor;
-    }
-
-    public int getPortCount() {
-        return portCount;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public int getLayerLvl() {
-        return layerLvl;
-    }
-
-    public String getManagementType() {
-        return managementType;
-    }
-
-    public boolean isPowerOverEthernet() {
-        return powerOverEthernet;
-    }
-
-    public boolean isStackable() {
-        return stackable;
-    }
-
-    public String getFormFactor() {
-        return formFactor;
-    }
-
-    public void setPortCount(int portCount) {
-        this.portCount = portCount;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public void setLayerLvl(int layerLvl) {
-        this.layerLvl = layerLvl;
-    }
-
-    public void setManagementType(String managementType) {
-        this.managementType = managementType;
-    }
-
-    public void setPowerOverEthernet(boolean powerOverEthernet) {
-        this.powerOverEthernet = powerOverEthernet;
-    }
-
-    public void setStackable(boolean stackable) {
-        this.stackable = stackable;
-    }
-
-    public void setFormFactor(String formFactor) {
         this.formFactor = formFactor;
     }
 

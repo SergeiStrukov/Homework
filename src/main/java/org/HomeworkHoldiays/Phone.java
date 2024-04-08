@@ -1,5 +1,10 @@
 package org.HomeworkHoldiays;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Phone extends OfficeEquipment {
     private int screenSize;
     private int storageSize;
@@ -21,65 +26,10 @@ public class Phone extends OfficeEquipment {
         this.processorType = processorType;
     }
 
-    public int getScreenSize() {
-        return screenSize;
-    }
-
-    public int getStorageSize() {
-        return storageSize;
-    }
-
-    public String getOperatingSystem() {
-        return operatingSystem;
-    }
-
-    public int getBatteryLife() {
-        return batteryLife;
-    }
-
-    public boolean isSmart() {
-        return isSmart;
-    }
-
-    public int getCameraResolution() {
-        return cameraResolution;
-    }
-
-    public String getProcessorType() {
-        return processorType;
-    }
-
-    public void setScreenSize(int screenSize) {
-        this.screenSize = screenSize;
-    }
-
-    public void setStorageSize(int storageSize) {
-        this.storageSize = storageSize;
-    }
-
-    public void setOperatingSystem(String operatingSystem) {
-        this.operatingSystem = operatingSystem;
-    }
-
-    public void setBatteryLife(int batteryLife) {
-        this.batteryLife = batteryLife;
-    }
-
-    public void setSmart(boolean smart) {
-        isSmart = smart;
-    }
-
-    public void setCameraResolution(int cameraResolution) {
-        this.cameraResolution = cameraResolution;
-    }
-
-    public void setProcessorType(String processorType) {
-        this.processorType = processorType;
-    }
 
     @Override
     public String toString() {
-        return "Phone{" +"id = " + getId() +
+        return "Phone{" + "id = " + getId() +
                 ", modelName = '" + getModelName() + '\'' +
                 ", manufacturer = '" + getManufacturer() + '\'' +
                 ", yearOfManufacture = " + getYearOfManufacture() +

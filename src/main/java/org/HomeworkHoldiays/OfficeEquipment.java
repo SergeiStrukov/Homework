@@ -1,9 +1,15 @@
 package org.HomeworkHoldiays;
 
 import com.github.javafaker.Faker;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Random;
 
+@Getter
+@Setter
+@AllArgsConstructor
 public class OfficeEquipment {
     private int id;
     private String modelName;
@@ -12,72 +18,6 @@ public class OfficeEquipment {
     private double price;
     private double weight;
     private boolean isOperational;
-
-    public OfficeEquipment(int id, String modelName, String manufacturer, int yearOfManufacture, double price, double weight, boolean isOperational) {
-        this.id = id;
-        this.modelName = modelName;
-        this.manufacturer = manufacturer;
-        this.yearOfManufacture = yearOfManufacture;
-        this.price = price;
-        this.weight = weight;
-        this.isOperational = isOperational;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getModelName() {
-        return modelName;
-    }
-
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public int getYearOfManufacture() {
-        return yearOfManufacture;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public boolean isOperational() {
-        return isOperational;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
-    }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
-
-    public void setYearOfManufacture(int yearOfManufacture) {
-        this.yearOfManufacture = yearOfManufacture;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public void setOperational(boolean operational) {
-        isOperational = operational;
-    }
 
     @Override
     public String toString() {

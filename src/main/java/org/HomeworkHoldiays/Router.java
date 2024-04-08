@@ -1,5 +1,10 @@
 package org.HomeworkHoldiays;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Router extends OfficeEquipment {
     private int speed;
     private int band;
@@ -18,62 +23,6 @@ public class Router extends OfficeEquipment {
         this.ports = ports;
         this.range = range;
         this.isDualBand = isDualBand;
-        this.connectivityType = connectivityType;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public int getBand() {
-        return band;
-    }
-
-    public String getSecurity() {
-        return security;
-    }
-
-    public int getPorts() {
-        return ports;
-    }
-
-    public int getRange() {
-        return range;
-    }
-
-    public boolean isDualBand() {
-        return isDualBand;
-    }
-
-    public String getConnectivityType() {
-        return connectivityType;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public void setBand(int band) {
-        this.band = band;
-    }
-
-    public void setSecurity(String security) {
-        this.security = security;
-    }
-
-    public void setPorts(int ports) {
-        this.ports = ports;
-    }
-
-    public void setRange(int range) {
-        this.range = range;
-    }
-
-    public void setDualBand(boolean dualBand) {
-        isDualBand = dualBand;
-    }
-
-    public void setConnectivityType(String connectivityType) {
         this.connectivityType = connectivityType;
     }
 
