@@ -11,6 +11,4 @@ public class Manager extends Employee {
         super(name, age, salary, department);
         this.managedEmployees = managedEmployees;
     }
-//    Классы наследники Manager и Developer от Employee:
-//    Manager имеет дополнительное поле int managedEmployees - количество подчиненных.
 }

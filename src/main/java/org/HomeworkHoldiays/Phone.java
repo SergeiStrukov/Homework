@@ -26,7 +26,6 @@ public class Phone extends OfficeEquipment {
         this.processorType = processorType;
     }
 
-
     @Override
     public String toString() {
         return "Phone{" + "id = " + getId() +

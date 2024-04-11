@@ -14,7 +14,8 @@ public class Laptop extends OfficeEquipment {
     private String operatingSystem;
     private boolean isTouchscreen;
 
-    public Laptop(int id, String modelName, String manufacturer, int yearOfManufacture, double price, double weight, boolean isOperational, String processorType, int ramSize, double storageSize, double batteryLife, int screenSize, String operatingSystem, boolean isTouchscreen) {
+    public Laptop(int id, String modelName, String manufacturer, int yearOfManufacture, double price, double weight, boolean isOperational,
+                  String processorType, int ramSize, double storageSize, double batteryLife, int screenSize, String operatingSystem, boolean isTouchscreen) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);
         this.processorType = processorType;
         this.ramSize = ramSize;
