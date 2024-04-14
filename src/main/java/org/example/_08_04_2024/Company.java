@@ -1,7 +1,7 @@
 package org.example._08_04_2024;
 
 import com.github.javafaker.Faker;
-
+//1
 public class Company {
     public static void main(String[] args) {
         Faker faker = new Faker();

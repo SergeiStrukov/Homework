@@ -3,6 +3,7 @@ package org.example._08_04_2024;
 import lombok.Getter;
 import lombok.Setter;
 
+//3
 @Getter
 @Setter
 public class Developer extends Employee {

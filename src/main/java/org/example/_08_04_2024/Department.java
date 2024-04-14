@@ -2,7 +2,7 @@ package org.example._08_04_2024;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
+//2
 @AllArgsConstructor
 @Getter
 public enum Department {
