@@ -8,12 +8,15 @@ public class InfoOfWorkers implements EmployeeProcessor {
 //        рассчитывает среднюю зарплату, рассчитывает среднюю зарплату в каждом департаменте.
     @Override
     public void printInfoWorkers(Employee[] workers) {
+//        печатает информацию о каждом сотруднике,
         for (int i = 0; i < workers.length; i++) {
             System.out.println(workers[i]);
         }
     }
+
     @Override
     public void countAverageSalary(Employee[] workers) {
+        //рассчитывает среднюю зарплату
         double averageSalary;
         double sum = 0;
         for (int i = 0; i < workers.length; i++) {
@@ -22,8 +25,10 @@ public class InfoOfWorkers implements EmployeeProcessor {
         averageSalary = sum / workers.length;
         System.out.println("Средняя зарплата у специалистов: " + averageSalary);
     }
+
     @Override
     public void countAverageDepartmentSalary(Employee[] workers) {
+        //рассчитывает среднюю зарплату в каждом департаменте.
         double sumSalaryIT = 0;
         double sumSalaryHR = 0;
         double averageSalaryIT;
@@ -42,9 +47,10 @@ public class InfoOfWorkers implements EmployeeProcessor {
         averageSalaryIT = sumSalaryIT / countIT;
         averageSalaryHR = sumSalaryHR / countHR;
         System.out.println("Средняя зарплата в IT: " + averageSalaryIT);
-        System.out.println("Средняя зарплата в департаменте HR: "+ averageSalaryHR);
+        System.out.println("Средняя зарплата в департаменте HR: " + averageSalaryHR);
     }
 }
+
 interface EmployeeProcessor {
     void printInfoWorkers(Employee[] workers);
 
