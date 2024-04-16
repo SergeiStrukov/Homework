@@ -8,7 +8,7 @@ import org.example._10_04_2024.Information.Account;
 import org.example._10_04_2024.Information.Address;
 import org.example._10_04_2024.Information.Auto;
 import org.example._10_04_2024.Information.Person;
-
+//
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

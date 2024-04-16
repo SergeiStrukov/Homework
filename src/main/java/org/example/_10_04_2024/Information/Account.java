@@ -2,7 +2,7 @@ package org.example._10_04_2024.Information;
 
 import org.example._10_04_2024.Enams.Currancy;
 //8. Написать класс Account
-//Поля:
+//Поля://
 //        - валюта счета(энам)
 //- баланс
 //- номер счета
