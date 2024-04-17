@@ -13,6 +13,7 @@ public class InfoOfWorkers implements EmployeeProcessor {
             System.out.println(workers[i]);
         }
     }
+
     @Override
     public double countAverageSalary(Employee[] workers) {
         //рассчитывает среднюю зарплату
@@ -21,12 +22,11 @@ public class InfoOfWorkers implements EmployeeProcessor {
         for (int i = 0; i < workers.length; i++) {
             sum += workers[i].getSalary();
         }
-        averageSalary = sum / workers.length;
-        return averageSalary;
+        return sum / workers.length;
     }
 
     @Override
-    public void countAverageDepartmentSalary(Employee[] workers) {
+    public String[] countAverageDepartmentSalary(Employee[] workers) {
         //рассчитывает среднюю зарплату в каждом департаменте.
         double sumSalaryIT = 0;
         double sumSalaryHR = 0;
@@ -45,8 +45,7 @@ public class InfoOfWorkers implements EmployeeProcessor {
         }
         averageSalaryIT = sumSalaryIT / countIT;
         averageSalaryHR = sumSalaryHR / countHR;
-        System.out.println("Средняя зарплата в IT: " + averageSalaryIT);
-        System.out.println("Средняя зарплата в департаменте HR: " + averageSalaryHR);
+        return new String[]{"Средняя зарплата в IT: " + averageSalaryIT, "Средняя зарплата в департаменте HR: " + averageSalaryHR};
     }
 }
 
@@ -55,5 +54,5 @@ interface EmployeeProcessor {
 
     double countAverageSalary(Employee[] workers);
 
-    void countAverageDepartmentSalary(Employee[] workers);
+    String[] countAverageDepartmentSalary(Employee[] workers);
 }

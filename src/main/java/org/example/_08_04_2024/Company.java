@@ -2,6 +2,8 @@ package org.example._08_04_2024;
 
 import com.github.javafaker.Faker;
 
+import java.util.Arrays;
+
 public class Company {
     public static void main(String[] args) {
         Faker faker = new Faker();
@@ -37,8 +39,8 @@ public class Company {
         System.out.println("Информация о сотрудниках:");
         InfoOfWorkers EmployeeProcessor = new InfoOfWorkers();
         EmployeeProcessor.printInfoWorkers(workers);
-        EmployeeProcessor.countAverageSalary(workers);
-        EmployeeProcessor.countAverageDepartmentSalary(workers);
+        System.out.println("Средняя зарплата = " + EmployeeProcessor.countAverageSalary(workers));
+        System.out.println(Arrays.toString(EmployeeProcessor.countAverageDepartmentSalary(workers)));
     }
 }
 //        Задание:

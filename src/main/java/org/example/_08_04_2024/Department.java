@@ -9,6 +9,7 @@ import lombok.Getter;
 public enum Department {
     IT("Informational technology", 10000),
     HR("Electrical technology", 10000);
+
     private String name;
     private int number;
 }
