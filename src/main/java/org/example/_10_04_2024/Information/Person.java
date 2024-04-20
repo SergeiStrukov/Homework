@@ -15,7 +15,7 @@ public class Person {
     private Auto auto;
     private List<Account> accounts;
 
-    public Person(String name, String surname, Address address, double salary, Auto auto, List <Account> accounts) {
+    public Person(String name, String surname, Address address, double salary, Auto auto, List<Account> accounts) {
         this.name = name;
         this.surname = surname;
         this.address = address;
