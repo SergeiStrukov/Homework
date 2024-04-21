@@ -12,7 +12,12 @@ public class Main {
 //        System.out.println(FigureTasks.findRectangleWithMaxArea(FigureGenerator.generateFigures()));
 //        FigureTasks.printEquilateralTriangles(FigureGenerator.generateFigures());
 //        System.out.println(FigureTasks.sumOfRadiiForColor(FigureGenerator.generateFigures(), Color.RED));
-        System.out.println(FigureTasks.hasRectangleAndTriangleOfSameColor(FigureGenerator.generateFigures()));
+//        System.out.println(FigureTasks.findRectangleAndTriangleOfSameColor(FigureGenerator.generateFigures()));
+//        System.out.println(FigureTasks.findCircleWithMinRadiusOfColor(FigureGenerator.generateFigures(), Color.PINK));
+//        System.out.println(FigureTasks.countTrianglesWithSideGreaterThan(FigureGenerator.generateFigures(), 99));
+        System.out.println(" ");
+//        System.out.println(FigureTasks.findCirclesWithRadiusEqualToTriangleSide(FigureGenerator.generateFigures()));
+        System.out.println(FigureTasks.findTriangleWithSmallestSideDifference(FigureGenerator.generateFigures()));
     }
 }
 @Setter

@@ -78,46 +78,83 @@ public class FigureTasks {
     /**
      * 5. Напишите метод для определения, есть ли в списке фигур прямоугольник и треугольник одинакового цвета.
      */
-    public static boolean hasRectangleAndTriangleOfSameColor(List<Figure> figures) {
+    public static boolean findRectangleAndTriangleOfSameColor(List<Figure> figures) {
+        List<Color> rectangle = new ArrayList<>();
         for (int i = 0; i < figures.size(); i++) {
             if (figures.get(i) instanceof Rectangle) {
-                Rectangle rectangle = (Rectangle) figures.get(i);
-                for (int j = 0; j < figures.size(); j++) {
-                    if (figures.get(j) instanceof Triangle) {
-                        Triangle triangle = (Triangle) figures.get(j);
-                        if (rectangle.getColor().equals(triangle.getColor())){
-                            return true;
-                        };
-                    }
+                rectangle.add((((Rectangle) figures.get(i)).getColor()));
+            }
+            if (figures.get(i) instanceof Triangle) {
+                Triangle triangle = (Triangle) figures.get(i);
+                if (rectangle.contains((triangle.getColor()))) {
+                    return true;
                 }
             }
         }
         return false;
     }
-//
+
+    //
 //    // ****************** Intermediate Tasks ******************
 //
 //    /**
 //     * 6. Напишите метод для нахождения круга с минимальным радиусом среди кругов заданного цвета.
 //     */
-//    public static Circle findCircleWithMinRadiusOfColor(List<Figure> figures, Color color) {
-//        return null;
-//    }
-//
+    public static Circle findCircleWithMinRadiusOfColor(List<Figure> figures, Color color) {
+        Circle minCircle = null;
+        int minRadius = 50;
+        for (Figure figure : figures) {
+            if (figure instanceof Circle) {
+                Circle circle = (Circle) figure;
+                if (circle.getColor().equals(color) && circle.getRadius() < minRadius) {
+                    minCircle = circle;
+                    minRadius = circle.getRadius();
+                }
+            }
+        }
+        return minCircle;
+    }
+
+    //
 //    /**
 //     * 7. Напишите метод для подсчета треугольников, у которых хотя бы одна сторона больше заданного значения.
 //     */
-//    public static int countTrianglesWithSideGreaterThan(List<Figure> figures, int length) {
-//        return 0;
-//    }
-//
+    public static int countTrianglesWithSideGreaterThan(List<Figure> figures, int length) {
+        int countTriangles = 0;
+        for (Figure figure : figures) {
+            if (figure instanceof Triangle) {
+                Triangle triangle = (Triangle) figure;
+                if (triangle.getA() > length || triangle.getB() > length || triangle.getC() > length) {
+                    countTriangles++;
+                }
+            }
+        }
+//        System.out.println(figures);
+        return countTriangles;
+    }
+
+    //
 //    /**
 //     * 9. Напишите метод для нахождения всех кругов, у которых радиус равен любой из сторон любого треугольника.
 //     */
-//    public static List<Circle> findCirclesWithRadiusEqualToTriangleSide(List<Figure> figures) {
-//
-//        return null;
-//    }
+    public static List<Circle> findCirclesWithRadiusEqualToTriangleSide(List<Figure> figures) {
+        List<Circle> circles = new ArrayList<>();
+        for (Figure figure1 : figures) {
+            if (figure1 instanceof Circle) {
+                Circle circle1 = (Circle) figure1;
+                for (Figure figure2 : figures) {
+                    if (figure2 instanceof Triangle) {
+                        Triangle triangle = (Triangle) figure2;
+                        if ((circle1.getRadius() == triangle.getC() || circle1.getRadius() == triangle.getB() || circle1.getRadius() == triangle.getA()) &&
+                                !circles.contains(circle1)) {
+                            circles.add(circle1);
+                        }
+                    }
+                }
+            }
+        }
+        return circles;
+    }
 //
 //    // ****************** Upper Intermediate Tasks ******************
 //
@@ -125,9 +162,32 @@ public class FigureTasks {
 //     * 11. Напишите метод для нахождения треугольника, у которого разница между
 //     * максимальной и минимальной сторонами минимальна среди всех треугольников.
 //     */
-//    public static Triangle findTriangleWithSmallestSideDifference(List<Figure> figures) {
-//        return null;
-//    }
+    public static Triangle findTriangleWithSmallestSideDifference(List<Figure> figures) {
+        Triangle triangleSides = null;
+        int sidesDiff = 100;
+        for (int i = 0; i < figures.size(); i++) {
+            if (figures.get(i) instanceof Triangle) {
+                Triangle triangle = (Triangle) figures.get(i);
+                int diff1 = triangle.getA() - triangle.getB();
+                int diff2 = triangle.getA() - triangle.getC();
+                int diff3 = triangle.getB() - triangle.getC();
+                if (Math.abs(diff1) < Math.abs(diff2) && Math.abs(diff1)< Math.abs(diff3) && Math.abs(diff1)<sidesDiff)
+                {
+                    triangleSides = triangle;
+                    sidesDiff = Math.abs(diff1);
+                }
+                else if (Math.abs(diff2) < Math.abs(diff1) && Math.abs(diff2)< Math.abs(diff3) && Math.abs(diff2)<sidesDiff) {
+                    triangleSides = triangle;
+                    sidesDiff = Math.abs(diff2);
+                }
+                else if (Math.abs(diff3) < Math.abs(diff1) && Math.abs(diff3)< Math.abs(diff2) && Math.abs(diff3)<sidesDiff) {
+                    triangleSides = triangle;
+                    sidesDiff = Math.abs(diff3);
+                }
+            }
+        }
+        return triangleSides;
+    }
 //
 //    /**
 //     * 12. Напишите метод для вывода всех фигур, у которых хотя бы один параметр
@@ -198,5 +258,4 @@ public class FigureTasks {
 //     */
 //    public static List<List<Figure>> findFigureCombinationsMatchingArea(List<Figure> figures, int targetArea) {
 //        return null;
-//    }
 }
