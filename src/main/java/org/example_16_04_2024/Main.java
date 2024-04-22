@@ -1,9 +1,6 @@
 package org.example_16_04_2024;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Main { //
     public static void main(String[] args) {
@@ -28,13 +25,17 @@ public class Main { //
     }
     public static List<Integer> getUniqDigit(List<Integer> list) {
         Collections.sort(list);
-        for (int i = 0; i < list.size() - 1; ) {
-            if (Objects.equals(list.get(i), list.get(i + 1))) {
-                list.remove(i + 1);
-            } else {
-                i++;
-            }
-        }
-        return list;
+
+        Set<Integer> uniqSet = new LinkedHashSet<>(list);
+        return new ArrayList<>(uniqSet);
     }
 }
+
+//        for (int i = 0; i < list.size() - 1; ) {
+//            if (Objects.equals(list.get(i), list.get(i + 1))) {
+//                list.remove(i + 1);
+//            } else {
+//                i++;
+//            }
+//        }
+//        return list;
