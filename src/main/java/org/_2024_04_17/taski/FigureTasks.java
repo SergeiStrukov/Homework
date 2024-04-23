@@ -258,4 +258,5 @@ public class FigureTasks {
 //     */
 //    public static List<List<Figure>> findFigureCombinationsMatchingArea(List<Figure> figures, int targetArea) {
 //        return null;
+
 }
