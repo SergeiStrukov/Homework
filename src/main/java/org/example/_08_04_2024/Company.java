@@ -1,14 +1,13 @@
 package org.example._08_04_2024;
 
 import com.github.javafaker.Faker;
-
 import java.util.Arrays;
 
 public class Company {
     public static void main(String[] args) {
         Faker faker = new Faker();
         Manager manager = new Manager(
-                faker.name().name(),
+                faker.name().username(),
                 faker.number().numberBetween(18, 99),
                 faker.number().randomDouble(1, 2000, 4000),
                 Department.HR,
