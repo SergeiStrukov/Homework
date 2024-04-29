@@ -64,10 +64,7 @@ public class MapTasks {
         }
         return rectangleRatios;
     }
-}
 
-//
-//Find circles with radius equal to any triangle side:
 //    public static Map<Circle, Boolean> findCirclesWithRadiusEqualToTriangleSide(List<Figure> figures) {
 //        Map<Circle, Double> result = new HashMap<>();
 //        List<Circle> circles = new ArrayList<>();
@@ -83,7 +80,13 @@ public class MapTasks {
 //                triangles.add(triangle);
 //            }
 //        }
+//        if ()
 //    }
+}
+
+//
+//Find circles with radius equal to any triangle side:
+
 //Determine if there's a rectangle and triangle of the same color:
 //    public static Map<String, Boolean> hasRectangleAndTriangleOfSameColor(List<Figure> figures) {
 //
