@@ -2,7 +2,7 @@ package org.example._10_04_2024.Information;
 
 import org.example._10_04_2024.Enams.Currancy;
 //8. Написать класс Account
-//Поля:
+//Поля://
 //        - валюта счета(энам)
 //- баланс
 //- номер счета
@@ -10,13 +10,11 @@ public class Account {
     private Currancy currancy;
     private int balance;
     private int numberAccount;
-
     public Account(Currancy currancy, int balance, int numberAccount) {
         this.currancy = currancy;
         this.balance = balance;
         this.numberAccount = numberAccount;
     }
-
     public Currancy getCurrancy() {
         return currancy;
     }
