@@ -65,32 +65,68 @@ public class MapTasks {
         return rectangleRatios;
     }
 
-//    public static Map<Circle, Boolean> findCirclesWithRadiusEqualToTriangleSide(List<Figure> figures) {
-//        Map<Circle, Double> result = new HashMap<>();
-//        List<Circle> circles = new ArrayList<>();
-//        List<Triangle> triangles = new ArrayList<>();
-//
-//        for (Figure figure : figures) {
-//            if (figure instanceof Circle) {
-//                Circle circle = (Circle) figure;
-//                circles.add(circle);
-//            }
-//            if (figure instanceof Triangle) {
-//                Triangle triangle = (Triangle) figure;
-//                triangles.add(triangle);
-//            }
-//        }
-//        if ()
-//    }
+    //Find circles with radius equal to any triangle side:
+    public static Map<Circle, Boolean> findCirclesWithRadiusEqualToTriangleSide(List<Figure> figures) {
+        Map<Circle, Boolean> result = new HashMap<>();
+        List<Circle> circles = new ArrayList<>();
+        List<Triangle> triangles = new ArrayList<>();
+
+        for (Figure figure : figures) {
+            if (figure instanceof Circle) {
+                Circle circle = (Circle) figure;
+                circles.add(circle);
+            } else if (figure instanceof Triangle) {
+                Triangle triangle = (Triangle) figure;
+                triangles.add(triangle);
+            }
+        }
+        for (Circle circle : circles) {
+            for (Triangle triangle : triangles) {
+                if (circle.getRadius() == triangle.getA() || circle.getRadius() == triangle.getB() || circle.getRadius() == triangle.getC()) {
+                    result.put(circle, true);
+                    break;
+                }
+            }
+            if (!result.containsKey(circle)) {
+                result.put(circle, false);
+            }
+        }
+        return result;
+    }
+
+    //Determine if there's a rectangle and triangle of the same color:
+    public static Map<String, Boolean> hasRectangleAndTriangleOfSameColor(List<Figure> figures) {
+        Map<String, Boolean> result = new HashMap<>();
+        List<String> rectanglesColors = new ArrayList<>();
+        List<String> trianglesColors = new ArrayList<>();
+        for (Figure figure : figures) {
+            if (figure instanceof Rectangle) {
+                Rectangle rectangle = (Rectangle) figure;
+                if (!rectanglesColors.contains(rectangle.getColor())) {
+                    rectanglesColors.add(String.valueOf(rectangle.getColor()));
+                }
+            } else if (figure instanceof Triangle) {
+                Triangle triangle = (Triangle) figure;
+                if (!trianglesColors.contains(triangle.getColor())) {
+                    trianglesColors.add(String.valueOf(triangle.getColor()));
+                }
+            }
+        }
+        for (String rectangleColor : rectanglesColors) {
+            for (String triangleColor : trianglesColors) {
+                if (rectangleColor.equals(triangleColor)) {
+                    result.put(rectangleColor, true);
+                    break;
+                }
+            }
+            if (!result.containsKey(rectangleColor)) {
+                result.put(rectangleColor, false);
+            }
+        }
+        return result;
+    }
 }
 
-//
-//Find circles with radius equal to any triangle side:
-
-//Determine if there's a rectangle and triangle of the same color:
-//    public static Map<String, Boolean> hasRectangleAndTriangleOfSameColor(List<Figure> figures) {
-//
-//    }
 
 //Calculate Average Radius of Circles Grouped by Color:
 //public static Map<Color, Double> averageRadiusOfCirclesByColor(List<Figure> figures)

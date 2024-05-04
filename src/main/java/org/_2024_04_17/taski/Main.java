@@ -20,15 +20,20 @@ public class Main {
 //        System.out.println(FigureTasks.findTriangleWithSmallestSideDifference(FigureGenerator.generateFigures()));
 //        System.out.println(MapTasks.countCirclesOfColor(FigureGenerator.generateFigures()));
 //        System.out.println(MapTasks.sumOfRadiiForColor(FigureGenerator.generateFigures()));
-        System.out.println(MapTasks.findRectangleWithLargestDiagonalToPerimeterRatio(FigureGenerator.generateFigures()));
+//        System.out.println(MapTasks.findRectangleWithLargestDiagonalToPerimeterRatio(FigureGenerator.generateFigures()));
+        System.out.println("--------------");
+//        System.out.println(MapTasks.findCirclesWithRadiusEqualToTriangleSide(FigureGenerator.generateFigures()));
+        System.out.println(MapTasks.hasRectangleAndTriangleOfSameColor(FigureGenerator.generateFigures()));
     }
 }
+
 @Setter
 @Getter
 @ToString
 class Figure {
 
 }
+
 @Setter
 @Getter
 @ToString
@@ -38,6 +43,7 @@ class Rectangle extends Figure {
     private int a;
     private int b;
 }
+
 @Setter
 @Getter
 @ToString
@@ -48,6 +54,7 @@ class Triangle extends Figure {
     private int b;
     private int c;
 }
+
 @Setter
 @Getter
 @ToString
