@@ -42,15 +42,22 @@ public class BNode {
         return search(bNode.right, value);
     }
 
+
     //todo
-    private static BNode getMin(BNode bNode) {
-        if (!isNodeExist(bNode)) {
-            return null;
+    private static int getMin(BNode bNode) {
+        int minNode = 0;
+        if (bNode == null) {
+            return 0; // Если переданный узел равен null, возвращаем null
         }
-        if (bNode.left != null) {
-            return getMin(bNode.left);
+        while (bNode.left != null) {
+            bNode = bNode.left;// Переходим к левому потомку, пока он существует
+            minNode = bNode.value;
+            return minNode;
         }
-        return bNode;
+        if (bNode.value == null) {
+            return minNode;
+        }
+        return 0;
     }
 
     //todo
@@ -109,9 +116,25 @@ public class BNode {
     }
 
     public static void main(String[] args) {
-        Integer[] digit = {2, 5, 13, 6, 10, 14};
+//        Integer[] digit = {2, 5, 13, 6, 10, 14};
         BNode bNode = new BNode();
         createNode(bNode, 7);
-        postOrderTraversal(bNode);
+        createNode(bNode.left, 6);
+        createNode(bNode.left.left, 5);
+        createNode(bNode.left.right, 8);
+        createNode(bNode.right, 10);
+        createNode(bNode.right.right, 15);
+        createNode(bNode.right.left, 9);
+        postOrderTraversal(bNode); // левое поддерево -> правое поддерево -> текущий узел.
+        System.out.println("-------");
+        System.out.println(getChildCount(bNode));
+        System.out.println("-------");
+        inOrderTraversal(bNode); //        левый поддерево -> текущий узел -> правый поддерево.
+        System.out.println("-------");
+        directOrderTraversal(bNode);
+        System.out.println("-------");
+        System.out.println(getMin(bNode));
+        System.out.println(getMax(bNode));
+
     }
 }
