@@ -13,10 +13,7 @@ public class MapTasks {
         for (Figure figure : figures) {
             if (figure instanceof Circle) {
                 Circle circle = (Circle) figure;
-                Color color = circle.getColor();
-                if (color != null) {
-                    colorCount.put(color, colorCount.getOrDefault(color, 0) + 1);
-                }
+                colorCount.put(circle.getColor(), colorCount.getOrDefault(circle.getColor(), 0) + 1);
             }
         }
         return colorCount;
@@ -26,16 +23,10 @@ public class MapTasks {
     //Sum of radius for circles of a certain color:
     public static Map<Color, Integer> sumOfRadiiForColor(List<Figure> figures) {
         Map<Color, Integer> radiusSum = new HashMap<>();
-        for (int i = 0; i < figures.size(); i++) {
-            if (figures.get(i) instanceof Circle) {
-                Circle circle = (Circle) figures.get(i);
-                Color color = circle.getColor();
-                if (color != null) {
-                    int radius = circle.getRadius();
-                    {
-                        radiusSum.put(color, radiusSum.getOrDefault(color, 0) + radius);
-                    }
-                }
+        for (Figure figure : figures) {
+            if (figure instanceof Circle) {
+                Circle circle = (Circle) figure;
+                radiusSum.put(circle.getColor(), radiusSum.getOrDefault(circle.getColor(), 0) + circle.getRadius());
             }
         }
         return radiusSum;
@@ -70,7 +61,6 @@ public class MapTasks {
         Map<Circle, Boolean> result = new HashMap<>();
         List<Circle> circles = new ArrayList<>();
         List<Triangle> triangles = new ArrayList<>();
-
         for (Figure figure : figures) {
             if (figure instanceof Circle) {
                 Circle circle = (Circle) figure;
@@ -95,25 +85,25 @@ public class MapTasks {
     }
 
     //Determine if there's a rectangle and triangle of the same color:
-    public static Map<String, Boolean> hasRectangleAndTriangleOfSameColor(List<Figure> figures) {
-        Map<String, Boolean> result = new HashMap<>();
-        List<String> rectanglesColors = new ArrayList<>();
-        List<String> trianglesColors = new ArrayList<>();
+    public static Map<Color, Boolean> hasRectangleAndTriangleOfSameColor(List<Figure> figures) {
+        Map<Color, Boolean> result = new HashMap<>();
+        List<Color> rectanglesColors = new ArrayList<>();
+        List<Color> trianglesColors = new ArrayList<>();
         for (Figure figure : figures) {
             if (figure instanceof Rectangle) {
                 Rectangle rectangle = (Rectangle) figure;
                 if (!rectanglesColors.contains(rectangle.getColor())) {
-                    rectanglesColors.add(String.valueOf(rectangle.getColor()));
+                    rectanglesColors.add(rectangle.getColor());
                 }
             } else if (figure instanceof Triangle) {
                 Triangle triangle = (Triangle) figure;
                 if (!trianglesColors.contains(triangle.getColor())) {
-                    trianglesColors.add(String.valueOf(triangle.getColor()));
+                    trianglesColors.add(triangle.getColor());
                 }
             }
         }
-        for (String rectangleColor : rectanglesColors) {
-            for (String triangleColor : trianglesColors) {
+        for (Color rectangleColor : rectanglesColors) {
+            for (Color triangleColor : trianglesColors) {
                 if (rectangleColor.equals(triangleColor)) {
                     result.put(rectangleColor, true);
                     break;

@@ -21,7 +21,7 @@ public class Main {
 //        System.out.println(MapTasks.countCirclesOfColor(FigureGenerator.generateFigures()));
 //        System.out.println(MapTasks.sumOfRadiiForColor(FigureGenerator.generateFigures()));
 //        System.out.println(MapTasks.findRectangleWithLargestDiagonalToPerimeterRatio(FigureGenerator.generateFigures()));
-        System.out.println("--------------");
+//        System.out.println("--------------");
 //        System.out.println(MapTasks.findCirclesWithRadiusEqualToTriangleSide(FigureGenerator.generateFigures()));
         System.out.println(MapTasks.hasRectangleAndTriangleOfSameColor(FigureGenerator.generateFigures()));
     }
