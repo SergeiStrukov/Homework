@@ -4,7 +4,7 @@ import java.util.*;
 
 public class HouseCollectionTasks_1 {
 
-    // Задание 1: Вернуть список всех квартир во всех домах (List)
+    // Задание 1: Вернуть список всех квартир во всех домах (List)//
     public static List<Flat> getAllFlats(List<House> houses) {
         List<Flat> allFlats = new ArrayList<>();
         for (House house : houses) {

@@ -13,6 +13,7 @@ import java.util.Objects;
 @Getter
 @Setter
 public class Student implements Comparable<Student> {
+    //
     //    Задание 1: Создание базового POJO класса
 //    Тема: Основы POJO (Plain Old Java Object).
 //    Описание: Создайте класс Student, который содержит базовые поля:

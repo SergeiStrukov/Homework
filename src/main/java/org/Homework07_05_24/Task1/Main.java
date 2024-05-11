@@ -20,6 +20,7 @@ public class Main {
 //    Создайте два компаратора: один для сортировки
 //    по имени и другой для сортировки по возрасту и последующей сортировке по имени.
 //    Демонстрируйте использование в main с выводом результатов.
+    //
     public static void main(String[] args) {
         List<Student> students = new ArrayList<>();
         List<Course> courses = new ArrayList<>();

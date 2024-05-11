@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class SimpleHouseCollectionTasks {
+public class SimpleHouseCollectionTasks {//
     
     // Задание 1: Вернуть количество подъездов во всех домах (List)
     public static int getTotalEntrances(List<House> houses) {
