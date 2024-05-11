@@ -74,6 +74,7 @@ public class Student implements Comparable<Student> {
         return this.age - otherStudents.getAge();
     }
 
+
     public Student(String firstName, String lastName, int age, List<Course> courses) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -88,6 +89,7 @@ public class Student implements Comparable<Student> {
         Student student = (Student) o;
         return age == student.age && Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName);
     }
+
 
     @Override
     public int hashCode() {
@@ -121,7 +123,7 @@ public class Student implements Comparable<Student> {
     }
 }
 
-class StudentComparator implements Comparator<Student> {
+class StudentLastNameComparator implements Comparator<Student> {
     @Override
     public int compare(Student o1, Student o2) {
         return o2.getLastName().compareTo(o1.getLastName());
@@ -138,9 +140,26 @@ class StudentFirstNameComparator implements Comparator<Student> {
 class StudentAgeNameComparator implements Comparator<Student> {
     @Override
     public int compare(Student o1, Student o2) {
-        if (o2.getAge() == o1.getAge()){
+        if (o2.getAge() == o1.getAge()) {
             return o2.getFirstName().compareTo(o1.getFirstName());
         }
-        return o2.getAge() - o1.getAge();
+        return o1.getAge() - o2.getAge();
+    }
+}
+
+//    Задание 4: Сортировка по нескольким полям с помощью Comparator
+//    Тема: Многоуровневая сортировка.
+//    Описание: Используя Comparator, реализуйте сортировку студентов сначала по фамилии,
+//    затем по имени, а затем по возрасту.
+//    В методе main отсортируйте список студентов и выведите его.
+class StudentLastNameFirstNameAgeComparator implements Comparator<Student> {
+    public int compare(Student o1, Student o2) {
+        if (!o1.getLastName().equals(o2.getLastName())) {
+            return o2.getLastName().compareTo(o1.getLastName());
+        }
+        if (!o1.getFirstName().equals(o2.getFirstName())) {
+            return o2.getFirstName().compareTo(o1.getFirstName());
+        }
+        return o1.getAge() - o2.getAge();
     }
 }

@@ -11,7 +11,22 @@ public class AdvancedHouseCollectionTasks {
     //
     public static List<Integer> getFlatsWithMoreRoomsThanAverage(List<House> houses) {
         List<Integer> flatNumbers = new ArrayList<>();
-
+        for (House house : houses) {
+            int totalRoomsInHouse = 0;
+            int totalFlatsInHouse = 0;
+            for (Flat flat : house.flats) {
+                totalFlatsInHouse++;
+                totalRoomsInHouse += flat.roomList.size();
+            }
+            if (totalFlatsInHouse != 0 && totalRoomsInHouse != 0) {
+                int averageRooms = totalRoomsInHouse / totalFlatsInHouse;
+                for (Flat flat : house.flats) {
+                    if (flat.roomList.size() > averageRooms) {
+                        flatNumbers.add(flat.flatnumber);
+                    }
+                }
+            }
+        }
         return flatNumbers;
     }
 
@@ -68,6 +83,11 @@ public class AdvancedHouseCollectionTasks {
     public static void main(String[] args) {
         List<House> houses = HouseGenerator.generateHouses(2); // Генерируем дома для примера
 //        houses.forEach(house -> System.out.println(house));
-        System.out.println(getTotalFirstFloorFlats(houses));
+        System.out.println(getFlatsWithMoreRoomsThanAverage(houses));
+//        System.out.println(getTotalFirstFloorFlats(houses));
+//        System.out.println(getFloorsWithElevator(houses));
+//        System.out.println(getTotalEntrancesInLargeHouses(houses));
+//        System.out.println(areAllHousesWithElevator(houses));
+//        System.out.println(getTotalFirstFloorFlats(houses));
     }
 }

@@ -23,9 +23,9 @@ class Flat {
     public String toString() {
         return "Flat[" +
                 "ROOMS: " + roomList.size() +
-                ", SQUARE: " + square +
+//                ", SQUARE: " + square +
                 ", FLAT NUMBER: " + flatnumber +
-                ", FLOOR: " + floor +
+//                ", FLOOR: " + floor +
                 ']';
     }
 }
