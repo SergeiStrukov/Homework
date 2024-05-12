@@ -76,9 +76,6 @@ public class Main {
         Collections.sort(students2);
         Collections.sort(students3);
 
-//        for (Group group : groups) {
-//            System.out.println(group.getGroupName());
-//        }
         for (Group group : groups) {
             System.out.println(group.getGroupName());
             for (Student student : group.getStudents()) {

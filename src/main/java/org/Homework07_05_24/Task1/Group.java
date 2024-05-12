@@ -11,13 +11,14 @@ import java.util.Objects;
 @Setter
 @Getter
 @ToString
-public class Group implements Comparable<Group> {
-    //    Задание 5: Применение Comparator в сложных структурах данных
+//    Задание 5: Применение Comparator в сложных структурах данных
 //    Тема: Продвинутое использование Comparator.
 //            Описание: Создайте класс Group, содержащий название группы и список студентов.
 //    Реализуйте сортировку групп по названию, а студентов внутри каждой группы —
 //    по возрасту, используя Comparator. В main создайте несколько групп с студентами,
 //    выполните сортировку и отобразите результат.
+public class Group implements Comparable<Group> {
+
     private String groupName;
     private List<Student> students;
 

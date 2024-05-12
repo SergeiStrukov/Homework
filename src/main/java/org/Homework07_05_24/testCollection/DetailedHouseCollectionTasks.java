@@ -56,7 +56,7 @@ public class DetailedHouseCollectionTasks {
 //            }
 //        }
 //        return roomCountByColor;
-//    }
+//    }  // Потом решить
 
     // Задание 3: Найти средний вес коробок в комнатах с зелеными стенами (List)
     public static double getAverageWeightOfBoxesInGreenRooms(List<House> houses) {
@@ -95,7 +95,7 @@ public class DetailedHouseCollectionTasks {
                     }
                 }
             }
-            if (house.flats.size() == 0) {
+            if (house.flats.isEmpty()) {
                 continue; // Если нет квартир в доме, переходим к следующему дому
             }
             percentRoomBoxes = flatWithBoxes / house.flats.size() * 100;
@@ -110,7 +110,18 @@ public class DetailedHouseCollectionTasks {
     // Задание 5: Подсчитать количество квартир, которые находятся в домах без лифтов и содержат коробки (List)
     public static int countFlatsWithBoxesInHousesWithoutElevators(List<House> houses) {
         int count = 0;
-
+        for (House house : houses) {
+            if (!house.hasElevator) {
+                for (Flat flat : house.flats) {
+                    for (Room room : flat.roomList) {
+                        if (!room.boxes.isEmpty()) {
+                            count++;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
         return count;
     }
 
