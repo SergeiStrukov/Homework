@@ -53,24 +53,44 @@ public class MoreAdvancedHouseCollectionTasks {
     // Задание 4: Вернуть общее количество комнат на последнем этаже всех домов (List)
     public static int getTotalRoomsOnTopFloors(List<House> houses) {
         int totalRooms = 0;
-
+        for (House house : houses) {
+            int maxFloor = 0;
+            for (Flat flat : house.flats) {
+                if (flat.floor > maxFloor) {
+                    maxFloor = flat.floor;
+                }
+            }
+            for (Flat flat : house.flats) {
+                if (flat.floor == maxFloor) {
+                    for (Room room : flat.roomList) {
+                        totalRooms++;
+                    }
+                }
+            }
+        }
         return totalRooms;
     }
 
     // Задание 5: Подсчитать суммарное количество комнат в квартирах, окрашенных в определенный цвет (Map)
     public static Map<Color, Integer> countRoomsByColor(List<House> houses) {
         Map<Color, Integer> roomColorCounts = new HashMap<>();
-
+        for (House house : houses) {
+            for (Flat flat : house.flats) {
+                for (Room room : flat.roomList) {
+                    roomColorCounts.put(room.color, roomColorCounts.getOrDefault(room.color,0) + 1);
+                }
+            }
+        }
         return roomColorCounts;
     }
 
     public static void main(String[] args) {
-        List<House> houses = HouseGenerator.generateHouses(100);
+        List<House> houses = HouseGenerator.generateHouses(10);
 
 //        System.out.println("Дома с квартирами более 100 кв. м: " + countHousesWithLargeFlats(houses));
 //        System.out.println("Дверные проемы в домах с лифтом: " + getDoorwaysInElevatorHouses(houses));
-        System.out.println("Цвета коробок в домах без лифта: " + getBoxColorsInNonElevatorHouses(houses));
+//        System.out.println("Цвета коробок в домах без лифта: " + getBoxColorsInNonElevatorHouses(houses));
 //        System.out.println("Комнаты на последних этажах: " + getTotalRoomsOnTopFloors(houses));
-//        System.out.println("Комнаты по цветам: " + countRoomsByColor(houses));
+        System.out.println("Комнаты по цветам: " + countRoomsByColor(houses));
     }
 }
