@@ -65,7 +65,7 @@ public class DetailedHouseCollectionTasks {
         for (House house : houses) {
             for (Flat flat : house.flats) {
                 for (Room room : flat.roomList) {
-                    if (room.color == Color.GREEN) {
+                    if (room.color == Color.GREEN && !room.boxes.isEmpty()) {
                         for (Box box : room.boxes) {
                             totalWeight += box.weight;
                             boxCount++;
@@ -73,9 +73,9 @@ public class DetailedHouseCollectionTasks {
                     }
                 }
             }
-        }
-        if (boxCount == 0) {
-            return boxCount;
+            if (boxCount == 0) {
+                return boxCount;
+            }
         }
         return boxCount > 0 ? totalWeight / boxCount : 0;
     }
@@ -84,9 +84,12 @@ public class DetailedHouseCollectionTasks {
     public static House getHouseWithHighestPercentageOfFlatsWithBoxes(List<House> houses) {
         House houseWithHighestPercentage = null;
         double highestPercentRoomBoxes = 0;
+        double percentRoomBoxes = 0;
         for (House house : houses) {
+            if (house.flats.isEmpty()) {
+                continue; // Если нет квартир в доме, переходим к следующему дому
+            }
             double flatWithBoxes = 0;
-            double percentRoomBoxes = 0;
             for (Flat flat : house.flats) {
                 for (Room room : flat.roomList) {
                     if (!room.boxes.isEmpty()) {
@@ -95,10 +98,7 @@ public class DetailedHouseCollectionTasks {
                     }
                 }
             }
-            if (house.flats.isEmpty()) {
-                continue; // Если нет квартир в доме, переходим к следующему дому
-            }
-            percentRoomBoxes = flatWithBoxes / house.flats.size() * 100;
+            percentRoomBoxes = (flatWithBoxes / (double) house.flats.size()) * 100;
             if (percentRoomBoxes > highestPercentRoomBoxes) {
                 highestPercentRoomBoxes = percentRoomBoxes;
                 houseWithHighestPercentage = house;
