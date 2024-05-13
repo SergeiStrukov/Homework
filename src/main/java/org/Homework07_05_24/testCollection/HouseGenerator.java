@@ -13,9 +13,8 @@ public class HouseGenerator {
             House house = new House();
             house.entrance = random.nextInt(10) + 1;
             house.hasElevator = random.nextBoolean();
-
             List<Flat> flats = new ArrayList<>();
-            int floors = random.nextInt(99);
+            int floors = random.nextInt(10)+1;
             int flatsPerFloor = random.nextInt(10) + 1;
             for (int floor = 0; floor < floors; floor++) {
                 for (int flatIndex = 0; flatIndex < flatsPerFloor; flatIndex++) {
@@ -31,7 +30,7 @@ public class HouseGenerator {
     private static Flat generateFlat(int floor) {
         Flat flat = new Flat();
         flat.floor = floor;
-        flat.flatnumber = random.nextInt(1000);
+        flat.flatnumber = random.nextInt(100);
         int roomsCount = random.nextInt(5) + 1;
         List<Room> rooms = new ArrayList<>();
         double totalSquare = 0;
@@ -39,7 +38,7 @@ public class HouseGenerator {
         for (int i = 0; i < roomsCount; i++) {
             Room room = new Room();
             room.length = random.nextDouble() * 10 + 1;
-            room.width = random.nextDouble() * 10 + 1;
+            room.width = random.nextDouble() * 9 + 1;
             room.height = random.nextDouble() * 3 + 2;
             room.color = Color.values()[random.nextInt(Color.values().length)];
             room.doorway = new Doorway();
