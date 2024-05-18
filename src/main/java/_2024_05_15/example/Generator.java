@@ -42,7 +42,7 @@ public class Generator {
     private static List<Pupil> generate4ParticipantsPupils() {
         List<Pupil> pupils = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            pupils.add(new Pupil(FAKER.name().name(), RANDOM.nextInt(5, 10)));
+            pupils.add(new Pupil(FAKER.name().name(), RANDOM.nextInt(6) + 5));
         }
         return pupils;
     }
@@ -50,7 +50,7 @@ public class Generator {
     private static List<Adult> generate4ParticipantsAdults() {
         List<Adult> adults = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            adults.add(new Adult(FAKER.name().name(), RANDOM.nextInt(21, 120)));
+            adults.add(new Adult(FAKER.name().name(), RANDOM.nextInt(100) + 20));
         }
         return adults;
     }
@@ -58,7 +58,7 @@ public class Generator {
     private static List<Teenager> generate4ParticipantsTeens() {
         List<Teenager> teenagers = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            teenagers.add(new Teenager(FAKER.name().name(), RANDOM.nextInt(11, 21)));
+            teenagers.add(new Teenager(FAKER.name().name(), RANDOM.nextInt(21) + 10));
         }
         return teenagers;
     }

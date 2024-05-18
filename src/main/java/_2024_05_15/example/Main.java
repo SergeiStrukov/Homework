@@ -2,6 +2,8 @@ package _2024_05_15.example;
 
 import com.github.javafaker.Faker;
 
+import java.util.Set;
+
 public class Main {
     private static final Faker FAKER = new Faker();
 
@@ -22,7 +24,13 @@ public class Main {
         pt.addNewParticipant(p1);
         tt.addNewParticipant(t1);
         at.addNewParticipant(a1);
-
+//        System.out.println(pt);
 //        pt.play(at);
+//        Set<Team<Pupil>> pupilTeams = Generator.generate25TeamsPupil();
+//        System.out.println(pupilTeams);
+//        Set<Team<Teenager>> teenagersTeam = Generator.generate25TeamsTeenagers();
+//        System.out.println(teenagersTeam);
+//        Set<Team<Adult>> adultsTeam = Generator.generate25TeamAdults();
+//        System.out.println(adultsTeam);
     }
 }
