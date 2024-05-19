@@ -14,5 +14,6 @@ public class Param1 {
         List l = new ArrayList();
         l.add(";;");
         l.add(123);
+        System.out.println(l);
     }
 }

@@ -12,6 +12,8 @@ public class Param2 {
         Info<Integer, String> info = new Info<>(123, "(*&");
         System.out.println(info.getValue1());
         System.out.println(info.getValue2());
+        InfoGen<Double,String> infoGen = new InfoGen<>(123.4,"fds");
+        System.out.println(infoGen.getValue3()+infoGen.getValue4());
     }
 }
 
@@ -21,4 +23,12 @@ public class Param2 {
 class Info<E1, E2> {
     private E1 value1;
     private E2 value2;
+}
+// Пример
+@Getter
+@AllArgsConstructor
+@ToString
+class InfoGen<A1,A2>{
+    private A1 value3;
+    private A2 value4;
 }
