@@ -45,6 +45,6 @@ public class Main {
         handler.updateTournamentMap(pupilTeams);
         handler.printResults();
 //        System.out.println(handler.getWinCounter());
-
+        handler.findChampion();
     }
 }

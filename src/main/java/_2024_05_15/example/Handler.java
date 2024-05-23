@@ -43,4 +43,32 @@ public class Handler {
     public <T extends Participant> void updateTournamentMap(Set<Team<T>> teams) {
         Team.playAllGames(teams, tournamentMap, this);
     }
+
+    // Метод для определения победителя:
+    public void findChampion() {
+        double maxPoints = 0;
+        List<Team<? extends Participant>> teams = new ArrayList<>(tournamentMap.keySet());
+        List<Team<? extends Participant>> bestTeams = new ArrayList<>();
+        for (Team<? extends Participant> team : teams) {
+            if (team.getPoints() > maxPoints) {
+                maxPoints = team.getPoints();
+            }
+        }
+        for (Team<? extends Participant> team : teams) {
+            if (team.getPoints() == maxPoints) {
+                bestTeams.add(team);
+            }
+        }
+        System.out.println("bestTeams" + bestTeams);
+        if (bestTeams.size() > 1) {
+            for (int i = 0; i < bestTeams.size(); i++) {
+                for (int j = i + 1; j < teams.size(); j++) {
+                    teams.get(i).play(bestTeams.get(j), this);
+                    tournamentMap.put(bestTeams.get(i), bestTeams.get(i).getPoints());
+                    tournamentMap.put(bestTeams.get(j), bestTeams.get(j).getPoints());
+                }
+            }
+            System.out.println("bestTeam" + bestTeams);
+        }
+    }
 }
