@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static jdk.internal.jrtfs.JrtFileAttributeView.AttrID.size;
 
 public class StreamHomework2 {
     public static void main(String[] args) {
@@ -18,8 +17,12 @@ public class StreamHomework2 {
 //        System.out.println(filterDoubleSort(numbers));
 //        System.out.println(maxLengthGreaterThanThree(list));
 //        System.out.println(filterNotStartingWithASortLimit(list));
-        System.out.println(mapDistinctSortAndJoin(numbers));
-        System.out.println(countDistinctDoubledGreaterThanTen(numbers));
+//        System.out.println(mapDistinctSortAndJoin(numbers));
+//        System.out.println(countDistinctDoubledGreaterThanTen(numbers));
+//        System.out.println(filterGreaterThanFiveMapToCubes(numbers));
+//        System.out.println(mapToLengthsFilterEvenSort(list));
+//        System.out.println(mapToStringDistinctSortByLength(numbers));
+        System.out.println(toLowerCaseDistinctSort(list));
     }
 
     //public class StreamTasksWithChaining {
@@ -182,41 +185,77 @@ public class StreamHomework2 {
                 .toArray(String[]::new);
 //        return strings.stream().toArray(size -> new String[size]);
     }
-//
-//    // 19. Отфильтровать числа больше 5, преобразовать в их кубы и вернуть как список
-//    public List<Integer> filterGreaterThanFiveMapToCubes(List<Integer> numbers) {
-//        // решение
-//    }
-//
-//    // 20. Преобразовать строки в их длины, отфильтровать четные, отсортировать и вернуть как список
-//    public List<Integer> mapToLengthsFilterEvenSort(List<String> strings) {
-//        // решение
-//    }
-//
-//    // 21. Отфильтровать строки, начинающиеся с "C", отсортировать, пропустить первые 2 и вернуть остальные
-//    public List<String> filterStartingWithCSkipFirstTwo(List<String> strings) {
-//        // решение
-//    }
-//
-//    // 22. Преобразовать числа в строки, удалить дубликаты, отсортировать по длине и вернуть как список
-//    public List<String> mapToStringDistinctSortByLength(List<Integer> numbers) {
-//        // решение
-//    }
-//
-//    // 23. Отфильтровать строки, длина которых больше 2, отсортировать и посчитать количество уникальных
-//    public long countDistinctLengthGreaterThanTwo(List<String> strings) {
-//        // решение
-//    }
-//
-//    // 24. Преобразовать строки в нижний регистр, удалить дубликаты, отсортировать и вернуть как список
-//    public List<String> toLowerCaseDistinctSort(List<String> strings) {
-//        // решение
-//    }
-//
-//    // 25. Отфильтровать строки, начинающиеся с "D", преобразовать в их длины, удалить дубликаты и вернуть как список
-//    public List<Integer> filterStartingWithDMapToLengthsDistinct(List<String> strings) {
-//        // решение
-//    }
-//}
 
+    //
+    // 19. Отфильтровать числа больше 5, преобразовать в их кубы и вернуть как список
+    public static List<Integer> filterGreaterThanFiveMapToCubes(List<Integer> numbers) {
+        return numbers.stream()
+                .filter(number -> number > 5)
+                .map(number -> (int) Math.pow(number, 3))
+                .collect(Collectors.toList());
+    }
+
+    //
+    // 20. Преобразовать строки в их длины, отфильтровать четные, отсортировать и вернуть как список
+    public static List<Integer> mapToLengthsFilterEvenSort(List<String> strings) {
+        return strings.stream()
+                .map(string -> string.length())
+                .filter(string -> string % 2 == 0)
+                .sorted()
+                .collect(Collectors.toList());
+    }
+
+    //
+//     21. Отфильтровать строки, начинающиеся с "C", отсортировать, пропустить первые 2 и вернуть остальные
+    public List<String> filterStartingWithCSkipFirstTwo(List<String> strings) {
+        return strings.stream()
+                .filter(string -> string.startsWith("C"))
+                .sorted()
+                .skip(2)
+                .collect(Collectors.toList());
+    }
+
+    //
+    // 22. Преобразовать числа в строки, удалить дубликаты, отсортировать по длине и вернуть как список
+    public static List<String> mapToStringDistinctSortByLength(List<Integer> numbers) {
+        return numbers.stream()
+                .map(number -> number.toString())
+                .distinct()
+                .sorted((s1, s2) -> Integer.compare(s1.length(), s2.length()))
+                .collect(Collectors.toList());
+    }
+
+    //
+    // 23. Отфильтровать строки, длина которых больше 2, отсортировать и посчитать количество уникальных
+    public long countDistinctLengthGreaterThanTwo(List<String> strings) {
+        return strings.stream()
+                .filter(string -> string.length() > 2)
+                .sorted()
+                .distinct()
+                .count();
+    }
+
+    //
+    // 24. Преобразовать строки в нижний регистр, удалить дубликаты, отсортировать и вернуть как список
+    public static List<String> toLowerCaseDistinctSort(List<String> strings) {
+        return strings.stream()
+                .map(string -> string.toLowerCase())
+                .distinct()
+                .sorted()
+                .collect(Collectors.toList());
+        // решение
+    }
+
+    //
+    // 25. Отфильтровать строки, начинающиеся с "D", преобразовать в их длины, удалить дубликаты и вернуть как список
+    public List<Integer> filterStartingWithDMapToLengthsDistinct(List<String> strings) {
+        // решение
+        return strings.stream()
+                .filter(string -> string.startsWith("D"))
+                .map(string -> string.length())
+                .distinct()
+                .collect(Collectors.toList());
+
+    }
 }
+
