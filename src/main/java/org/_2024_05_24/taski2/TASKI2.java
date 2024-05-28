@@ -31,16 +31,16 @@ public class TASKI2 {
     }
 
     //    //Напишите метод, который принимает список объектов и возвращает новый список, содержащий
-//    // только объекты, у которых определенное поле имеет заданное значение.
+//    // только объекты, у которых определенное поле имеет заданное значение. // Дорозбираться с методом.
     public static <T> List<T> filterByField(List<T> objects, String fieldName, Object value) throws NoSuchFieldException {
         if (objects.isEmpty()) {
             return List.of();
         }
-        Field field = objects.get(0).getClass().getField(fieldName);
+        Field field = objects.get(0).getClass().getField(fieldName); // получение указанного поля из класса первого объекта в списке
         return objects.stream()
                 .filter(object -> {
                             try {
-                                Object fieldValue = field.get(object);
+                                Object fieldValue = field.get(object); // получаем значение поля (Любой тип).
                                 return value == null ? fieldValue == null : value.equals(fieldValue);
                             } catch (IllegalAccessException e) {
                                 throw new RuntimeException(e);
@@ -48,11 +48,18 @@ public class TASKI2 {
                         }
                 )
                 .collect(Collectors.toList());
-        //    //Напишите метод, который принимает список строк и возвращает список строк, содержащих
+    }
+
+    //    //Напишите метод, который принимает список строк и возвращает список строк, содержащих
 //    // только уникальные символы (т.е. символы, которые не повторяются в строке).
-//    public static List<String> uniqueChars(List<String> strings) {
-//
-//    }
+    public static List<String> uniqueChars(List<String> strings) {
+        List<String> uniqueChars =
+                strings.stream()
+                        .flatMap(string -> Arrays.stream(string.split("")))
+                        .distinct()
+                        .collect(Collectors.toList());
+        return uniqueChars;
+    }
 //    //Напишите метод, который принимает список строк и возвращает самую длинную строку в списке.
 //    public static String longestString(List<String> strings) {
 //
@@ -62,7 +69,6 @@ public class TASKI2 {
 //    public static <T> double averageFieldValue(List<T> objects, String fieldName) throws NoSuchFieldException {
 //
 //    }
-    }
 
     public static void main(String[] args) {
         List<Integer> numbers = List.of(1, 2, 3, 4, 5);
@@ -73,10 +79,12 @@ public class TASKI2 {
                 new MyObject("Value1"),
                 new MyObject("value2")
         );
+        System.out.println(uniqueChars(strings));
     }
 
     static class MyObject {
         public String field;
+
         public MyObject(String field) {
             this.field = field;
         }
