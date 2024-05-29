@@ -1,6 +1,7 @@
 //package org._2024_05_24.taski1; //package PROF.streams.streams.taski1;
 package org._2024_05_24.taski1;
 
+import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -163,5 +164,24 @@ public class TaskSTREAM {
 //        m8();
 //        m9();
         m10(new String[]{"apple", "banana", "apricot", "cherry", "kiwi", "grape"});
+    }
+    //    //Напишите метод, который принимает список объектов и возвращает новый список, содержащий
+//    // только объекты, у которых определенное поле имеет заданное значение. // Дорозбираться с методом.
+    public static <T> List<T> filterByField(List<T> objects, String fieldName, Object value) throws NoSuchFieldException {
+        if (objects.isEmpty()) {
+            return List.of();
+        }
+        Field field = objects.get(0).getClass().getField(fieldName); // получение указанного поля из класса первого объекта в списке
+        return objects.stream()
+                .filter(object -> {
+                            try {
+                                Object fieldValue = field.get(object); // получаем значение поля (Любой тип).
+                                return value == null ? fieldValue == null : value.equals(fieldValue);
+                            } catch (IllegalAccessException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                )
+                .collect(Collectors.toList());
     }
 }
