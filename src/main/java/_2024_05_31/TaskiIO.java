@@ -16,14 +16,16 @@ public class TaskiIO {
 
     public static void main(String[] args) {
         // Тестовые вызовы методов
-        keyGetter("1: [Стрим 1], 4.0");
-        valueGetter("1: [Стрим 1], 4.0");
+//        keyGetter("1: [Стрим 1], 4.0");
+//        valueGetter("1: [Стрим 1], 4.0");
         read();
-        writeAverageRating();
-        writeFilteredStreamsHigher();
+//        writeAverageRating();
+//        writeFilteredStreamsHigher();
 //        writeFilteredStreams();
-//        System.out.println(streamsToRatings);
+        writeSameNameStreams();
+//        System.out.println(groupedStreams());
 //        System.out.println(getAvgRating());
+        writeSortedByRatesStreams();
     }
 
     public static void read() {
@@ -53,19 +55,32 @@ public class TaskiIO {
 
     public static void writeFilteredStreamsHigher() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("highStreams.txt"))) {
-            writer.write("highRatingStreams:" +filteredStreamsHigher());
+            writer.write("highRatingStreams:" + filteredStreamsHigher());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    //    public static void writeToFile(String fileName, String line, Boolean append) {
-//        try(BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, append))) {
-//            writer.write(line);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+
+    public static void writeSameNameStreams() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("writeSameNameStreams.txt"))) {
+            Map<String, Integer> groupedStreams = groupedStreams();
+            for (Map.Entry<String, Integer> entry : groupedStreams.entrySet()) {
+                writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void writeSortedByRatesStreams() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("writeSortedByRatesStreams.txt"))) {
+            writer.write("writeSortedByRatesStreams:" + sortedByRatesStreams());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     // Для извлечения значения
     private static Double valueGetter(String line) {
 
@@ -97,7 +112,6 @@ public class TaskiIO {
                 .mapToDouble(el -> el)
                 .average()
                 .orElse(0.0);
-
     }
 
     //Отфильтруйте стримы, имеющие рейтинг выше 4.5
@@ -119,5 +133,28 @@ public class TaskiIO {
                         Map.Entry::getKey,
                         Map.Entry::getValue
                 ));
+    }
+
+    //    Сгруппируйте стримы по названию и запишите количество стримов в каждой группе в новый файл. Группировка есть
+    public static Map<String, Integer> groupedStreams() {
+        Map<String, Integer> groupedStreams = streamsToRatings
+                .entrySet()
+                .stream()
+                .collect(Collectors.toMap(Map.Entry::getKey,
+                        el -> el.getValue().size()));
+        return groupedStreams;
+    }
+
+    //Отсортируйте стримы по рейтингу от наибольшего к наименьшему и запишите результаты в новый файл.
+    public static Map<String, Double> sortedByRatesStreams() {
+        return streamsToRatings.entrySet().stream()
+                .collect(Collectors.toMap(key -> key.getKey(), entry -> entry.getValue().stream()
+                        .mapToDouble(el -> el)
+                        .average()
+                        .orElse(0.0)))
+                .entrySet().stream()
+                .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
+                .collect(Collectors.toMap(Map.Entry::getKey,
+                        Map.Entry::getValue));
     }
 }
