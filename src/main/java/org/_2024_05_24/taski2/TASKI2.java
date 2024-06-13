@@ -23,11 +23,14 @@ public class TASKI2 {
         return sumOfSquaresOfOddNumbers;
     }
 
-    //Напишите метод, который принимает список строк и возвращает список уникальных слов, отсортированных в лексикографическом порядке.
+    // Напишите метод, который принимает список строк и
+    // возвращает список уникальных слов, отсортированных
+    // в лексикографическом порядке.
     public static List<String> uniqueSortedWords(List<String> strings) {
         List<String> uniqueSortedWords = strings.stream()
                 .flatMap(string -> Arrays.stream(string.split("\\s+")))
                 .distinct()
+                .map(String::toLowerCase)
                 .sorted()
                 .collect(Collectors.toList());
         return uniqueSortedWords;
