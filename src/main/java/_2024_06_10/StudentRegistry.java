@@ -1,14 +1,17 @@
 package _2024_06_10;
 
 import com.github.javafaker.Faker;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
-
+@AllArgsConstructor
 public class StudentRegistry {
     @Getter
     private static Map<Integer, Student> students = new HashMap<>();

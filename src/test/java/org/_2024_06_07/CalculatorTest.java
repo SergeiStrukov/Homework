@@ -17,6 +17,7 @@ class CalculatorTest {
 
     @Test
     void divideNegativeTest() {
+
         double a = 100;
         double bZero = 0;
         Assertions.assertThrows(ArithmeticException.class,() -> new Calculator().divide(a,bZero));

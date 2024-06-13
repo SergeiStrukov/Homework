@@ -37,7 +37,7 @@ public class TaskSTREAM {
      */
 //
 //    //Задание 1: Фильтрация списка целых чисел на нечетные числа
-    private static void m1() {
+    public static void m1() {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         List<Integer> oddNumbers = numbers.stream()
                 .filter(number -> number % 2 != 0)
@@ -47,7 +47,7 @@ public class TaskSTREAM {
 
     //
     //Задание 2: Преобразование списка строк в список чисел
-    private static void m2() {
+    public static void m2() {
         List<String> strings = Arrays.asList("apple", "banana", "apricot", "cherry", "kiwi");
         List<Integer> numbers = strings.stream()
                 .map(s -> Integer.parseInt(s))
@@ -58,7 +58,7 @@ public class TaskSTREAM {
 
     //
 //    //Задание 3: Суммирование списка чисел
-    private static void m3() {
+    public static void m3() {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
         int sum = numbers.stream()
                 .reduce((acc, cur) -> acc + cur).get();

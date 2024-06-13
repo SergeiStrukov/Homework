@@ -12,7 +12,8 @@ import java.util.stream.Collectors;
 //уровень 7
 public class TASKI2 {
 
-    //Напишите метод, который принимает список чисел и возвращает сумму квадратов всех нечетных чисел в списке.
+    //Напишите метод, который принимает список чисел и
+    // возвращает сумму квадратов всех нечетных чисел в списке.
     public static int sumOfSquaresOfOddNumbers(List<Integer> numbers) {
         int sumOfSquaresOfOddNumbers = numbers.stream()
                 .filter(number -> number % 2 != 0)
