@@ -5,6 +5,7 @@ public class BNode {
     public BNode left;
     public BNode right;
 
+
     private static boolean isNodeExist(BNode bNode) {
 
         return bNode != null && bNode.value != null;

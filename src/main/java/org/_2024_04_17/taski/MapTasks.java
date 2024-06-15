@@ -31,7 +31,6 @@ public class MapTasks {
         }
         return radiusSum;
     }
-
     //
 //    //Find the rectangle with the largest diagonal to perimeter ratio:
     public static Map<Rectangle, Double> findRectangleWithLargestDiagonalToPerimeterRatio(List<Figure> figures) {

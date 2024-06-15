@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import static org._2024_04_17.taski.FigureTasks.findCircleWithMinRadiusOfColor;
+
 public class Main {
     public static void main(String[] args) {
 //        System.out.println(FigureGenerator.generateFigures());
@@ -23,7 +25,9 @@ public class Main {
 //        System.out.println(MapTasks.findRectangleWithLargestDiagonalToPerimeterRatio(FigureGenerator.generateFigures()));
 //        System.out.println("--------------");
 //        System.out.println(MapTasks.findCirclesWithRadiusEqualToTriangleSide(FigureGenerator.generateFigures()));
-        System.out.println(MapTasks.hasRectangleAndTriangleOfSameColor(FigureGenerator.generateFigures()));
+//        System.out.println(MapTasks.hasRectangleAndTriangleOfSameColor(FigureGenerator.generateFigures()));
+//        System.out.println(FigureTasks.countTrianglesWithSideGreaterThan(FigureGenerator.generateFigures(), 90));
+        System.out.println(findCircleWithMinRadiusOfColor(FigureGenerator.generateFigures(), Color.RED));
     }
 }
 

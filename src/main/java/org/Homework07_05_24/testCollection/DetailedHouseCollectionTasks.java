@@ -59,7 +59,7 @@ public class DetailedHouseCollectionTasks {
 //    }  // Потом решить
 
     // Задание 3: Найти средний вес коробок в комнатах с зелеными стенами (List)
-    public static double getAverageWeightOfBoxesInGreenRooms(List<House> houses) {
+    public static double getAverageWeightOfBoxesInGreenRooms(List<House> houses) throws DivideByZero {
         double totalWeight = 0;
         double boxCount = 0;
         for (House house : houses) {
@@ -73,11 +73,11 @@ public class DetailedHouseCollectionTasks {
                     }
                 }
             }
-            if (boxCount == 0) {
-                return boxCount;
-            }
         }
-        return boxCount > 0 ? totalWeight / boxCount : 0;
+        if (boxCount == 0) {
+            throw new DivideByZero(ErrorMessage2.DIVIDE_BY_0);
+        }
+        return totalWeight / boxCount;
     }
 
     // Задание 4: Определить, в каком доме самый большой процент квартир с коробками (List)
@@ -134,4 +134,14 @@ public class DetailedHouseCollectionTasks {
         System.out.println("Дом с самым большим процентом квартир с коробками: " + getHouseWithHighestPercentageOfFlatsWithBoxes(houses));
 //        System.out.println("Квартиры с коробками в домах без лифтов: " + countFlatsWithBoxesInHousesWithoutElevators(houses));
     }
+}
+
+class DivideByZero extends RuntimeException {
+    public DivideByZero(String message) {
+        super(message);
+    }
+}
+
+class ErrorMessage2 {
+    public static final String DIVIDE_BY_0 = "DIVIDE_BY_0";
 }

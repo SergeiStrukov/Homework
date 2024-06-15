@@ -1,0 +1,6 @@
+Проверка с использованием @CsvFileSource
+income,status
+-1,single
+0,alone
+90000,divorced
+-100,married

@@ -5,13 +5,17 @@ import java.util.*;
 public class HouseCollectionTasks_1 {
 
     // Задание 1: Вернуть список всех квартир во всех домах (List)//
-    public static List<Flat> getAllFlats(List<House> houses) {
+    public static List<Flat> getAllFlats(List<House> houses) throws EmptyDataException {
+        if (houses.isEmpty()) {
+            throw new EmptyDataException(ErrorMessage.LIST_NOT_NULL);
+        }
         List<Flat> allFlats = new ArrayList<>();
         for (House house : houses) {
-            List<Flat> flatslist = house.flats;
-            for (Flat flat : flatslist) {
-                allFlats.add(flat);
+            List<Flat> flatList = house.flats;
+            if (flatList.isEmpty()) {
+                throw new EmptyDataException(ErrorMessage.LIST_NOT_NULL);
             }
+            allFlats.addAll(flatList);
         }
         return allFlats;
     }
@@ -79,4 +83,14 @@ public class HouseCollectionTasks_1 {
 //        System.out.println("Номера квартир по порядку: " + getFlatNumbersInOrder(houses.get(0)));
         System.out.println("Квартиры в обратном порядке: " + getFlatsInReverseOrder(houses.get(0)));
     }
+}
+
+class EmptyDataException extends RuntimeException {
+    public EmptyDataException(String message) {
+        super(message);
+    }
+}
+
+class ErrorMessage {
+    public static final String LIST_NOT_NULL = "LIST_NOT_NULL";
 }
