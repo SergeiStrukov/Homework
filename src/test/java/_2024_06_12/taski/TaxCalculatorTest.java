@@ -1,5 +1,6 @@
 package _2024_06_12.taski;
 
+import Old._2024_06_12.taski.TaxCalculator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,7 +9,7 @@ import org.junit.jupiter.params.provider.*;
 
 import java.util.stream.Stream;
 
-import static _2024_06_12.taski.TaxCalculator.calculateTax;
+import static Old._2024_06_12.taski.TaxCalculator.calculateTax;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TaxCalculatorTest {

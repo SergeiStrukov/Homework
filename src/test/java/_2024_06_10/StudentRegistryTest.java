@@ -1,13 +1,12 @@
 package _2024_06_10;
 
+import Old._2024_06_10.Student;
+import Old._2024_06_10.StudentRegistry;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-import static _2024_06_10.StudentRegistry.generateStudents;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StudentRegistryTest {

@@ -1,14 +1,15 @@
 package org._2024_06_14.taskiMick;
 
+import Old.org._2024_06_14.taskiMick.OrderRepository;
+import Old.org._2024_06_14.taskiMick.OrderService;
+import Old.org._2024_06_14.taskiMick.PurchaseOrder;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class OrderServiceTest {
@@ -37,11 +38,15 @@ class OrderServiceTest {
     @Mock
     private OrderRepository orderRepository;
     @InjectMocks
-    OrderService orderService;
+    private OrderService orderService;
 
     @Test
     void placeOrder() {
-//        when(orderRepository.save(orderService)).then()
+        orderService.placeOrder(order);
+        orderService.placeOrder(order);
+
+        // Assert
+        verify(orderRepository, times(2)).save(order);
     }
 
     @Test
