@@ -1,7 +1,5 @@
 package New._19_06_2024;
 
-import java.time.LocalDate;
-
 public class Main {
     public static void main(String[] args) {
         User user = new User();
@@ -18,7 +16,7 @@ public class Main {
             System.out.println("Surname:" + user.getSurname());
             System.out.println("Birthday:" + user.getBirthdayDate());
             System.out.println("Description:" + user.getDescription());
-        } catch (NameLengthException | SurnameLengthException  | InvalidDateFormatException e
+        } catch (NameLengthException | SurnameLengthException | InvalidDateFormatException e
         ) {
             System.err.println("Ошибка: " + e.getMessage());
         }

@@ -15,6 +15,7 @@ public class UserChecker {
         this.scanner = new Scanner(System.in);
         this.user = user;
     }
+
     //метод для ввода имени
     public void enterName() throws NameLengthException {
         System.out.print("Введите имя (не более 20 символов): ");
@@ -24,6 +25,7 @@ public class UserChecker {
         }
         user.setName(name);
     }
+
     //метод для ввода фамилии
     public void enterSurname() throws SurnameLengthException {
         System.out.println("Введите фамилию (не более 20 символов): ");
@@ -33,6 +35,7 @@ public class UserChecker {
         }
         user.setSurname(surname);
     }
+
     //метод для ввода описания
     public void enterDescription() {
         System.out.println("Введите описание (не более 100 символов):");
@@ -42,6 +45,7 @@ public class UserChecker {
         }
         user.setDescription(description);
     }
+
     //метод для ввода даты рождения
     public void enterBirthdayDate() throws InvalidDateFormatException {
         System.out.println("Введите дату рождения (формат YYYY-MM-DD):");
@@ -55,6 +59,7 @@ public class UserChecker {
         user.setBirthdayDate(birthdayDate);
     }
 }
+
 // классы исключений
 class NameLengthException extends Exception {
     public NameLengthException(String msg) {
