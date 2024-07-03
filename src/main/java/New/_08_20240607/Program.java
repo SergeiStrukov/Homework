@@ -25,7 +25,6 @@ public class Program {
             }
             map.get(sortedStr).add(str);
         }
-
         return new ArrayList<>(map.values());
     }
 }
