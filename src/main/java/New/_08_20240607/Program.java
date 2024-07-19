@@ -3,7 +3,6 @@ package New._08_20240607;
 import java.util.*;
 
 public class Program {
-
     public static void main(String[] args) {
         List<List<String>> result = groupAnagrams(
                 new String[] { "eat", "tea", "tan", "ate", "nat", "bat" });
