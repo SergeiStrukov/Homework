@@ -8,6 +8,10 @@ public class ThirdLvlTasks {
     public static void main(String[] args) {
         List<Double> list = List.of(123.0, 124.5);
         System.out.println(createAnotherType(list));
+
+        List<String> input = List.of("apple", "banana", "cherry", "date");
+        System.out.println(findUniqueChars(input));
+//        System.out.println(input);
     }
 //            22. **Поиск уникальных символов**: Найти все уникальные символы из списка строк.
 //23. **Разделение списка**: Разделить список чисел на два списка: четные и нечетные числа.
@@ -29,9 +33,13 @@ public class ThirdLvlTasks {
                 .collect(Collectors.toList());
     }
 //  22. **Поиск уникальных символов**: Найти все уникальные символы из списка строк.
-//    public static List<Character> findUniqueWords(List<String>list){
-//        return list.stream()
-//                .
-//    }
+    public static List<Character> findUniqueChars(List<String>list){
+        return list.stream()
+                .map(el->el.trim())
+                .flatMapToInt(el->el.chars())
+                .distinct()
+                .mapToObj(el->(char) el)
+                .collect(Collectors.toList());
+    }
 
 }
