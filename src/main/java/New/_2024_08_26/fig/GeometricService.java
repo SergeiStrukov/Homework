@@ -14,7 +14,7 @@ public class GeometricService {
                 .toList();
     }
 
-    public static List<Circle> findCirclesInMinMaxRadiusRange(List<Geometric> geometries, double minRadius, double maxRadius) {
+    public List<Circle> findCirclesInMinMaxRadiusRange(List<Geometric> geometries, double minRadius, double maxRadius) {
         return geometries.stream()
                 .filter(geometric -> geometric instanceof Circle)
                 .map((el -> (Circle) el))
@@ -22,7 +22,7 @@ public class GeometricService {
                 .collect(Collectors.toList());
     }
 
-    public static List<Line> findLinesLongerThanLength(List<Geometric> geometries, double length) {
+    public List<Line> findLinesLongerThanLength(List<Geometric> geometries, double length) {
 
         return geometries.stream()
                 .filter(geometric -> geometric instanceof Line)

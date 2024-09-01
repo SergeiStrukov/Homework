@@ -1,13 +1,13 @@
-package New._2024_08_26.fig;
-
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.EnumSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
-
-import java.util.List;
-import java.util.stream.Stream;
-
+//package New._2024_08_26.fig;
+//
+//import org.junit.jupiter.params.ParameterizedTest;
+//import org.junit.jupiter.params.provider.EnumSource;
+//import org.junit.jupiter.params.provider.MethodSource;
+//import org.junit.jupiter.params.provider.ValueSource;
+//
+//import java.util.List;
+//import java.util.stream.Stream;
+//
 //class GeometricServiceTest {
 //
 //    @ParameterizedTest
