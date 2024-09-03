@@ -2,7 +2,7 @@ package New._2024_08_26.fig;
 
 import lombok.*;
 
-public abstract class Geometric {
+public class Geometric {
 }
 
 @Getter
