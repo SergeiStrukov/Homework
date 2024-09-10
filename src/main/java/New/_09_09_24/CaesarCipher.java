@@ -1,0 +1,4 @@
+//package New._09_09_24;
+//
+//public class CaesarCipher { private int shift; // Конструктор для задания величины сдвига public CaesarCipher(int shift) { this.shift = shift; } // Метод для шифрования строки public String encrypt(String input) { StringBuilder encrypted = new StringBuilder(); for (char character : input.toCharArray()) { if (Character.isLetter(character)) { char base = Character.isLowerCase(character) ? 'a' : 'A'; // Сдвигаем символ с учетом алфавита char shifted = (char) ((character - base + shift) % 26 + base); encrypted.append(shifted); } else { // Если не буква, то оставляем символ без изменений encrypted.append(character); } } return encrypted.toString(); } // Метод для расшифровки строки public String decrypt(String input) {
+//// StringBuilder decrypted = new StringBuilder(); for (char character : input.toCharArray()) { if (Character.isLetter(character)) { char base = Character.isLowerCase(character) ? 'a' :
