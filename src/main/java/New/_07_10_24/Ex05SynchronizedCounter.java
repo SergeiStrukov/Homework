@@ -1,5 +1,7 @@
 package New._07_10_24;
 
+import static java.lang.Thread.sleep;
+
 public class Ex05SynchronizedCounter {
     private int count = 0;
 
