@@ -25,5 +25,6 @@ public class Palindrome {
             lastIndex--;
         }
         return isPalindrome;
+
     }
 }

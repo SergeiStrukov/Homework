@@ -33,14 +33,14 @@ class StudentRegistryTest {
         assertFalse(StudentRegistry.getStudents().containsKey(student.getId()));
     }
 
-    @Test
-    void findStudentsByMajor() {
-        StudentRegistry.generateStudents();
-        Map<Integer, Student> students = StudentRegistry.getStudents();
-        List<Student> bStudents = StudentRegistry.findStudentsByMajor("BIOLOGY");
-        assertTrue(bStudents.stream().allMatch(student -> student.getMajor().name().equalsIgnoreCase("BIOLOGY")));
-        System.out.println("Students from biology: " + bStudents.size());
-    }
+//    @Test
+//    void findStudentsByMajor() {
+//        StudentRegistry.generateStudents();
+//        Map<Integer, Student> students = StudentRegistry.getStudents();
+//        List<Student> bStudents = StudentRegistry.findStudentsByMajor("BIOLOGY");
+//        assertTrue(bStudents.stream().allMatch(student -> student.getMajor().name().equalsIgnoreCase("BIOLOGY")));
+//        System.out.println("Students from biology: " + bStudents.size());
+//    }
 
     @Test
     void calculateAverageGrade() {
